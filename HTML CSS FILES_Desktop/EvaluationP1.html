@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Statistical Report</title>
+	<title>Evaluation Overview</title>
 	<style>
 
         body{
@@ -115,13 +115,13 @@
 			var row = table.insertRow();
 			
 			// Add cells to the new row
-			var courseNameCell = row.insertCell();
-			var trainingProviderCell = row.insertCell();
-			var trainingPerformanceCell = row.insertCell();
-			var costCell = row.insertCell();
-            var dayCell = row.insertCell();
-            var employeeCell = row.insertCell();
-            var buttonCell = row.insertCell();
+			var courseNameCell = row.insertCell(0);
+			var trainingProviderCell = row.insertCell(1);
+			var trainingPerformanceCell = row.insertCell(2);
+			var costCell = row.insertCell(3);
+            var dayCell = row.insertCell(4);
+            var employeeCell = row.insertCell(5);
+            var buttonCell = row.insertCell(6);
 			
 			// Add text to the new cells
 			courseNameCell.innerHTML = '2021';
@@ -133,13 +133,13 @@
 
             // Code to create a button in a script
             var newButton = document.createElement('button');
-            newButton.innerHTML = 'View Course'
-            newbutton.onclick = function()
+            newButton.innerHTML = 'View Course';
+            newButton.onclick = function()
             {
                 // put whatever it needs to send the user to that course details
                 alert('Viewing Course :)');
             };
-            document.buttonCell.appendChild(newButton);
+            buttonCell.appendChild(newButton);
 
             
             

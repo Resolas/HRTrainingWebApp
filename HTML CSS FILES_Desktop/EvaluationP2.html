@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Evaluation Course Details</title>
+</head>
+<style>
+
+    body{
+        margin:0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 16px;
+    }
+    
+    th, td {
+        padding: 10px 20px;
+        border: 1px solid #a4a3ff;
+        text-align: center;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    p {
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    div{
+        text-align: center;
+        min-width: 10%;
+        max-width: 80%;
+        border-radius: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flexbox;
+        background-color: rgb(218, 255, 252);
+
+
+    }
+
+    .left {
+
+        flex: 1;
+        background-color:turquoise;
+        padding: 20px;
+        min-width: 30%;
+
+    }
+
+    .right {
+
+        
+        flex: 1;
+        background-color:rgb(255, 213, 213);
+        padding: 20px;
+        min-width: 70%;
+
+}
+
+</style>
+<body>
+        <button function="addEmployee">AddButton</button>
+    <div class="left">
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee List</th>
+
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>Test</td>
+
+        </tr>
+    </tbody>
+
+
+
+
+</table>
+
+
+        
+    </div>
+
+    <div class="right">
+
+<p1>TESTING</p1>
+        
+    </div>
+
+
+</body>
+
+    <script>
+        // Add employee button to the left employee table list
+        function addEmployee()
+        {
+
+            var getTable = document.getElementsByName('table')[0];
+
+            var row = table.insertRow();
+
+            var employeeNameCell = row.insertCell(0);
+
+            var newButton = document.createElement('button');
+            newButton.innerHTML = 'Bob';
+            newButton.onclick = function()
+            {
+                alert('Hi Bob :I');
+
+            }
+            employeeNameCell.appendChild(newButton);
+            
+
+        }
+
+
+
+    </script>
+
+</html>
