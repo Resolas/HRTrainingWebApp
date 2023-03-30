@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Evaluation Course Details</title>
+    <title>Training Course Details</title>
 </head>
 <style>
 
@@ -11,7 +11,8 @@
         padding: 0;
         display: flex;
         flex-direction: row;
-        height: 100px;
+        
+        height: auto;
         font-family: Arial, Helvetica, sans-serif;
 
     }
@@ -49,11 +50,13 @@
         text-align: center;
         min-width: 10%;
         max-width: 80%;
+        
         border-radius: 20px;
         padding-left: 50px;
         padding-right: 50px;
         display: flexbox;
         background-color: rgb(218, 255, 252);
+        
 
 
     }
@@ -63,7 +66,10 @@
         flex: 1;
         background-color:turquoise;
         padding: 20px;
+        min-height: fit-content;
         min-width: 30%;
+        
+        
 
     }
 
@@ -73,16 +79,29 @@
         flex: 1;
         background-color:rgb(255, 213, 213);
         padding: 20px;
+        min-height: fit-content;
         min-width: 70%;
 
 }
 
+    .backButton {
+
+        flex: 1;
+        background-color:rgb(255, 213, 213);
+        padding: 20px;
+        min-height: fit-content;
+        min-width: 30%;
+    text-align: right;
+
+    }
+
+
 </style>
 <body>
-        <button function="addEmployee">AddButton</button>
-    <div class="left">
 
-<table>
+    <div class="left">
+        <button onclick="addEmployee()"> AddButton</button>
+<table >
     <thead>
         <tr>
             <th>Employee List</th>
@@ -92,26 +111,36 @@
     </thead>
     <tbody>
         <tr>
-
             <td>Test</td>
-
+        </tr>
+        <tr>
+            <td>Test</td>
+        </tr>
+        <tr>
+            <td>Test</td>
         </tr>
     </tbody>
 
-
-
-
 </table>
-
-
-        
+       <p1>kasdwjsiefjkhxdrkughdtrkjxfkgixufdhkgubhfdkughxfkukh</p1>
     </div>
 
     <div class="right">
 
-<p1>TESTING</p1>
-        
+           <!-- First button code <a class="button" href="EvaluationP1.html">Back</a> -->
+            <button style="text-align: right;">
+                <a class="button" href="TrainingCourseOverview.html">Back</a></button>
+
+                    <div class="right">
+
+                        <h2>Link to evaluation standards</h2>
+                
+                    </div>
+
     </div>
+
+    
+
 
 
 </body>
@@ -121,9 +150,9 @@
         function addEmployee()
         {
 
-            var getTable = document.getElementsByName('table')[0];
+            var getTable = document.getElementsByTagName('table')[0];
 
-            var row = table.insertRow();
+            var row = getTable.insertRow();
 
             var employeeNameCell = row.insertCell(0);
 
