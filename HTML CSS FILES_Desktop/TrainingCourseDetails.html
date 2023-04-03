@@ -63,28 +63,7 @@
 
     }
 
-    .left {
 
-        flex: 1;
-        background-color:turquoise;
-        padding: 20px;
-        min-height: fit-content;
-        min-width: 30%;
-        
-        
-
-    }
-
-    .right {
-
-        
-        flex: 1;
-        background-color:rgb(255, 213, 213);
-        padding: 20px;
-        min-height: fit-content;
-        min-width: 70%;
-
-}
 
     .backButton {
 
@@ -101,7 +80,7 @@
 </style>
 <body>
 
-<div class="divmain">
+<div class="divback">
 
     <div class="left">
 
@@ -133,6 +112,9 @@
     </tbody>
 
 </table>
+
+
+
        <p1>Testing Purposes</p1>
     </div>
 
@@ -164,6 +146,8 @@
                             </tbody>
 
                         </table>
+
+                        <canvas id="barChart" width="400" height="200"></canvas>
                 
                     </div>
 
@@ -213,6 +197,41 @@
 
         }
 
+
+
+    </script>
+
+    <script> // BARCHART SCRIPT-----------------
+       
+        var canvas = document.getElementById("barChart");
+
+        var ctx = canvas.getContext("2d");
+
+        var dataArray = [10,15,190,35,90,200,100];
+
+        var barWidth = 50;
+        var barSpacing = 10;
+
+        // Initial Spacing
+        var x = 50;
+
+    for (var i = 0; i < dataArray.length; i++)
+    {
+        // height of each bar
+        var height = dataArray[i];
+
+        // Draws the bars
+        var myColor = ctx.createLinearGradient(0,0,0,255);
+
+        myColor.addColorStop(0,"red");
+        //myColor.addColorStop(0.5,"black");
+        myColor.addColorStop(1,"white");
+        ctx.fillStyle = myColor;
+        ctx.fillRect(x, canvas.height - height, barWidth, height);
+
+        // Seperates the bars
+        x += barWidth + barSpacing;
+    }
 
 
     </script>

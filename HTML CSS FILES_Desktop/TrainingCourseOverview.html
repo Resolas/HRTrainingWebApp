@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Training Overview</title>
+    <link rel="stylesheet" type="text/css" href="MainStyleSheet.css">
 	<style>
 
         body{
@@ -114,12 +115,12 @@
         </table>
     </div>
 	
-	<button onclick="addRow()">Add Row</button>
+	<button onclick="addRow('TrainingCourseDetails.html')">Add Row</button>
 	
 	<p>This statistical report shows the revenue, expenses, and profit for a business over the past three years. As you can see from the table above, the business has experienced steady growth in revenue and profit, while keeping expenses under control.</p>
 	
 	<script>
-		function addRow() {
+		function addRow(myLink) {
 			// Get a reference to the table
 			var table = document.getElementsByTagName('table')[0];
 			
@@ -150,12 +151,15 @@
             {
                 // put whatever it needs to send the user to that course details
                 alert('Viewing Course :)');
+                //newButton.onclick = "GotoPage(TrainingCourseDetails.html)";
+                window.location.href = myLink;
             };
             buttonCell.appendChild(newButton);
 
             
             
 		}
+
 	</script>
 </body>
 </html>
