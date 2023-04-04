@@ -148,7 +148,7 @@
                         </table>
 
                         <canvas id="barChart" width="400" height="200"></canvas>
-                
+                        <canvas id="pieChart" width="400" height="400"></canvas>
                     </div>
 
     </div>
@@ -204,36 +204,103 @@
     <script> // BARCHART SCRIPT-----------------
        
         var canvas = document.getElementById("barChart");
+        //canvas.width = 400;
+        //canvas.height = 350;
 
         var ctx = canvas.getContext("2d");
 
-        var dataArray = [10,15,190,35,90,200,100];
+        var dataArray = [10,15,190,35,90];
 
         var barWidth = 50;
         var barSpacing = 10;
 
         // Initial Spacing
-        var x = 50;
+        var x = 0;
+        // Offset
+        var offset = 6;
+        // Draws the outlines
+       // ctx.fillStyle = "red";
+        
 
     for (var i = 0; i < dataArray.length; i++)
     {
         // height of each bar
         var height = dataArray[i];
-
+    
+        //var myColorOutline = ctx.fillStyle("red");
         // Draws the bars
-        var myColor = ctx.createLinearGradient(0,0,0,255);
+        var myColorBar = ctx.createLinearGradient(0,0,0,255);
 
-        myColor.addColorStop(0,"red");
+        myColorBar.addColorStop(0,"red");
         //myColor.addColorStop(0.5,"black");
-        myColor.addColorStop(1,"white");
-        ctx.fillStyle = myColor;
-        ctx.fillRect(x, canvas.height - height, barWidth, height);
+        myColorBar.addColorStop(1,"white");
+        ctx.fillStyle = myColorBar;
+        ctx.fillRect(x, canvas.height - height - offset, barWidth, height);
+        
+        
 
         // Seperates the bars
         x += barWidth + barSpacing;
     }
 
+    var curHeight = 0;
+    for (var i = 0; i < dataArray.length; i++)  // Find highest bar
+    {
+        if (curHeight < dataArray[i])
+        {
+            curHeight = dataArray[i];
+        }
+    }
+    ctx.fillStyle = "red";
+    ctx.fillRect(0,canvas.height,100*dataArray.length,2);
+    ctx.fillRect(0,canvas.height,2,-curHeight);
+
 
     </script>
+
+    <script>    // PIECHART SCRIPT---------------
+
+        var canvas = document.getElementById('pieChart');
+        var ctx = canvas.getContext("2d");
+
+        var dataArray = [5,130,10,5,75];
+        var colorArray = ["red","cyan","yellow","navy","purple"]
+
+        var x = canvas.width/2;
+        var y = canvas.height/2;
+
+        var radius = 200;
+        var startAngle = 0;
+        var endAngle = Math.PI * 2;
+
+
+        // Math :I  get sum
+        var total = 0;
+        for (var i = 0; i < dataArray.length; i++)
+        {
+            total += dataArray[i];
+        }
+
+        // draw the piechart
+
+        for (var i = 0; i < dataArray.length; i++)
+        {
+
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.arc(x,y,radius,startAngle,startAngle+(Math.PI*2*(dataArray[i]/total)),false);
+            ctx.closePath();
+            
+            ctx.fillStyle = colorArray[i];
+            //ctx.fillStyle();
+            ctx.fill();
+            startAngle += Math.PI*2*(dataArray[i]/total);
+
+        }
+
+        
+
+    </script>
+
 
 </html>
