@@ -33,6 +33,7 @@ public class WebSecurityConfig {
 					.loginPage("/login")
 					.permitAll()
 					//.successForwardUrl("/user")
+					// The success handler is what directs the user to their respective pages
 					.successHandler((request, response, authentication) -> {
 				        if (authentication.getAuthorities().stream()
 				                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
