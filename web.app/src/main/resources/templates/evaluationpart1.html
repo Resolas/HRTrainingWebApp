@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+   <head>
+        <title>Evaluation Part 1</title>
+  <body>
+	<form>
+		<h1>Evaluation Part 1</h1>
+		<label for="certification">1. Was Certification Received?</label>
+		<select id="certification" name="certification">
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+		</select>
+		<label for="reason">If no, please explain the reason:</label>
+		<input type="text" id="reason" name="reason">
+		<label for="objective">2. Objective of Training:</label>
+		<input type="text" id="objective" name="objective">
+		<label for="topic">3. Topic Covered:</label>
+		<input type="text" id="topic" name="topic">
+		<label for="important">4. What are the three most important things or topics you learned during the training:</label>
+		<input type="text" id="important" name="important">
+		<label for="useful">5. Please outline how the training will be useful in your work:</label>
+		<input type="text" id="useful" name="useful">
+		<div class="button-container">
+			
+			<button class="button" type="submit" name="back">Back</button>
+			<!-- <a class="button" href="evaluationpart2.html" name="next">Next</button> -->
+			
+			<a class="button" href="evaluationpart2.html">Next</a>
+			</div>
+		</form>
+	
+</body>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		h1 {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		form {
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+
+		select {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.button {
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			color: #fff;
+			font-weight: bold;
+			background-color: #007bff;
+			cursor: pointer;
+			font-size: 18px;
+		}
+
+		.button:hover {
+			background-color: #0062cc;
+		}
+
+		.button:active {
+			background-color: #005cbf;
+		}
+	</style>
+    </head>
+</html>

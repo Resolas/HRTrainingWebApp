@@ -32,6 +32,19 @@ public class WebSecurityConfig {
 			.formLogin((form) -> form
 					.loginPage("/login")
 					.permitAll()
+					//.successForwardUrl("/user")
+					.successHandler((request, response, authentication) -> {
+				        if (authentication.getAuthorities().stream()
+				                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
+				            response.sendRedirect("/admin");
+				        } else if (authentication.getAuthorities().stream()
+				                .anyMatch(a -> a.getAuthority().equals("ROLE_USER"))) {
+				            response.sendRedirect("/user");
+				        } else {
+				            throw new IllegalStateException();
+				        }
+				    })
+					.and()
 			)
 			.logout((logout) -> logout.permitAll());
 		return http.build();		
