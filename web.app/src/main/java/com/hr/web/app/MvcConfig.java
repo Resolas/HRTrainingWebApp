@@ -13,7 +13,7 @@ public class MvcConfig implements WebMvcConfigurer {
 	//Another view which is refernce for admin page("/admin")
 	//And a view which is a reference for the login page("/login")
 	
-	/*
+	/* Code Templates USE THEM!!!
 	
 	Add this to the registry
 	
@@ -41,7 +41,7 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/pendingapplication").setViewName("pendingapplication");
 		
 		// Admin pages
-		
+		registry.addViewController("/employeepersonaldetailspart1").setViewName("employeepersonaldetailspart1");
 		
 	}//end addViewControllers Method
 

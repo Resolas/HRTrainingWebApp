@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 // MvcController is what directs the user to the login upon entering webapp or localhost/8080
 
-/*
-		Add this in the respective controllers
+/* Code Templates Use Them :I
+		Add this in the respective controllers you wish to them to be in
 
 @GetMapping("/mypage")
     public String mypage() {
