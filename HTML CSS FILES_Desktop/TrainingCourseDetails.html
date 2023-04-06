@@ -147,7 +147,7 @@
 
                         </table>
 
-                        <canvas id="barChart" width="400" height="200"></canvas>
+                        <canvas id="barChart" width="500" height="400"></canvas>
                         <canvas id="pieChart" width="400" height="400"></canvas>
                     </div>
 
@@ -204,8 +204,7 @@
     <script> // BARCHART SCRIPT-----------------
        
         var canvas = document.getElementById("barChart");
-        //canvas.width = 400;
-        //canvas.height = 350;
+        
 
         var ctx = canvas.getContext("2d");
 
@@ -232,10 +231,10 @@
         var myColorBar = ctx.createLinearGradient(0,0,0,255);
 
         myColorBar.addColorStop(0,"red");
-        //myColor.addColorStop(0.5,"black");
-        myColorBar.addColorStop(1,"white");
+        myColorBar.addColorStop(0.5,"red");
+        myColorBar.addColorStop(1,"orange");
         ctx.fillStyle = myColorBar;
-        ctx.fillRect(x, canvas.height - height - offset, barWidth, height);
+        ctx.fillRect(canvas.width/5 +x, canvas.height - 50 - height - offset, barWidth, height);
         
         
 
