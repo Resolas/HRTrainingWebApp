@@ -5,6 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 // MvcController is what directs the user to the login upon entering webapp or localhost/8080
 
+/*
+		Add this in the respective controllers
+
+@GetMapping("/mypage")
+    public String mypage() {
+        return "mypage";
+    }
+
+
+
+ */
+
+
+
 @Controller
 public class MvcController {
 
@@ -30,6 +44,26 @@ class UserController {
     public String user() {
         return "user";
     }
+	
+	// To connect new pages 
+	
+	@GetMapping("/evaluationpart1")
+	public String evaluationpart1()
+	{
+		
+		return "evaluationpart1";
+		
+	}
+	
+	@GetMapping("/evaluationpart2")
+	public String evaluationpart2()
+	{
+		
+		return "evaluationpart2";
+		
+	}
+	
+	
 }
 
 
