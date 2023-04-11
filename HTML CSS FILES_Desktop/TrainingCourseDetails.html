@@ -263,6 +263,16 @@
         var ctx = canvas.getContext("2d");
 
         var dataArray = [5,130,10,5,75];
+
+        var data = [
+            {label: 'Strongly Agree', value: 25, color:'red'}
+            {label: 'Agree', value: 15, color:'cyan'}
+            {label: 'Neutral', value: 50, color:'yellow'}
+            {label: 'Disagree', value: 25, color:'navy'}
+            {label: 'Strongly Disagree', value: 25, color:'purple'}
+
+        ];
+        
         var colorArray = ["red","cyan","yellow","navy","purple"]
 
         var x = canvas.width/2;
@@ -294,6 +304,23 @@
             //ctx.fillStyle();
             ctx.fill();
             startAngle += Math.PI*2*(dataArray[i]/total);
+
+        }
+        // Piechart 2.0--------------------------
+
+        // data Sum
+        var sum = 0;
+        for (var int = 0; i < data.length; i++)
+        {
+            sum += data.value[i];
+
+        }
+
+        for (var i = 0; i < data.length; i++)
+        {
+
+
+
 
         }
 
