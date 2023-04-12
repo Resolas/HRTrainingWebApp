@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Example</title>
+</head>
+<body>
+    <h1>Canvas Example</h1>
+    <button id="button1">Update Canvas 1</button>
+    <canvas id="canvas1" width="200" height="200" style="border:1px solid black;"></canvas>
+    <br>
+    <button id="button2">Update Canvas 2</button>
+    <canvas id="canvas2" width="200" height="200" style="border:1px solid black;"></canvas>
+
+    <script>
+        // Get canvas elements and buttons
+        var canvas1 = document.getElementById("canvas1");
+        var ctx1 = canvas1.getContext("2d");
+        var button1 = document.getElementById("button1");
+        
+        var canvas2 = document.getElementById("canvas2");
+        var ctx2 = canvas2.getContext("2d");
+        var button2 = document.getElementById("button2");
+        
+        // Add click event listener to button1
+        button1.addEventListener("click", function() {
+            // Update canvas1
+            ctx1.fillStyle = "red";
+            ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
+        });
+        
+        // Add click event listener to button2
+        button2.addEventListener("click", function() {
+            // Update canvas2
+            ctx2.fillStyle = "blue";
+            ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
+        });
+    </script>
+</body>
+</html>

@@ -78,6 +78,52 @@
 
 
 </style>
+
+<style>
+    body {
+      padding: 50px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    
+    form {
+      display: inline-block;
+      text-align: left;
+      border: 2px solid #ccc;
+      padding: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type=text] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+  </style>
 <body>
 
 <div class="divback">
@@ -146,9 +192,31 @@
                             </tbody>
 
                         </table>
-
+                       <!--<button id="button_BC">Update Canvas</button> --> 
                         <canvas id="barChart" width="500" height="400"></canvas>
                         <canvas id="pieChart" width="400" height="400"></canvas>
+
+                        <!-- Open ended questions-->
+
+                        <h1>Training Details</h1>
+    <form action="TrainingDetails1.html">
+      <label for="viewingStudent">Viewing Student:</label>
+      <input type="text" id="viewingStudent" name="viewingStudent" required>
+
+      <label for="objectiveOfTraining">Objective of Training:</label>
+      <input type="text" id="objectiveOfTraining" name="objectiveOfTraining" required>
+
+      <label for="topicsCovered">Topics Covered:</label>
+      <input type="text" id="topicsCovered" name="topicsCovered" required>
+
+      <label for="mostImportantThings">What are the three most important things or topics you learned during the course:</label>
+      <input type="text" id="mostImportantThings" name="mostImportantThings" required>
+
+      <label for="usefulnessOfWork">Please outline how this training will be useful in your work:</label>
+      <input type="text" id="usefulnessOfWork" name="usefulnessOfWork" required>
+
+    </form>
+
                     </div>
 
     </div>
@@ -182,24 +250,8 @@
 
         }
 
-
-        function switchEvalStandards()
-        {
-
-
-
-
-        }
-
-        function displayBarChart()
-        {
-
-
-        }
-
-
-
     </script>
+
 
 <script>
     // BARCHART SCRIPT-----------------
@@ -209,16 +261,6 @@
 
     var dataArray = [10, 15, 190, 35, 90];
     var dataLabel = ['Str.Agree','Agree','Neutral','Disagree','Str.Disagree'];
-    /*
-    var dataArray = [
-    {label:'Strongly Agree', value: 10},
-    {label:'Agree', value: 10},
-    {label:'Neutral', value: 10},
-    {label:'Disagree', value: 10},
-    {label:'Strongly Disagree', value: 10}
-    ];
-    */
-    
     var barWidth = 50;
     var barSpacing = 10;
     var x = 0;
@@ -231,24 +273,39 @@
     myColorBar.addColorStop(1, "orange");
     ctx.fillStyle = myColorBar;
 
-    // Draws the bars + Labels
-    for (var i = 0; i < dataArray.length; i++) {
-        var height = dataArray[i];
-        ctx.fillStyle = myColorBar;
-        ctx.fillRect(canvas.width / 5 + x, canvas.height - 50 - height - offset, barWidth, height);
+    // Function to draw bars
+    function drawBars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+        for (var i = 0; i < dataArray.length; i++) {
+            var height = dataArray[i];
+            ctx.fillStyle = myColorBar;
+            ctx.fillRect(canvas.width / 5 + x, canvas.height - 50 - height - offset, barWidth, height);
 
-        ctx.fillStyle = "black";
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText(dataArray[i].toString(), canvas.width / 5 + x + barWidth / 2, canvas.height - 60 - height - offset, barWidth, height);
-        ctx.fillText(dataLabel[i], canvas.width / 5 + x + barWidth / 2, canvas.height - 40);
+            ctx.fillStyle = "black";
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(dataArray[i].toString(), canvas.width / 5 + x + barWidth / 2, canvas.height - 60 - height - offset, barWidth, height);
+            ctx.fillText(dataLabel[i], canvas.width / 5 + x + barWidth / 2, canvas.height - 40);
 
-        x += barWidth + barSpacing;
+            x += barWidth + barSpacing;
+        }
     }
 
-    ctx.fillStyle = "red";
-    ctx.fillRect(0, canvas.height, 100 * dataArray.length, 2);
-    ctx.fillRect(0, canvas.height, 2, -curHeight);
+    drawBars(); // Initial drawing of bars
+
+    // Function to update data and redraw bars
+    function updateData(newDataArray) {
+        dataArray = newDataArray;
+        curHeight = Math.max(...dataArray);
+        x = 0;
+        drawBars();
+    }
+
+    // Example of updating data at runtime
+    function updateCanvas() {
+        var newDataArray = [50, 100, 75, 120, 200];
+        updateData(newDataArray);
+    }
 
 </script>
 
