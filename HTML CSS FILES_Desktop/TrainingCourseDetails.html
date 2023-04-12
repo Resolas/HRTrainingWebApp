@@ -201,61 +201,56 @@
 
     </script>
 
-    <script> // BARCHART SCRIPT-----------------
-       
-        var canvas = document.getElementById("barChart");
-        
+<script>
+    // BARCHART SCRIPT-----------------
 
-        var ctx = canvas.getContext("2d");
+    var canvas = document.getElementById("barChart");
+    var ctx = canvas.getContext("2d");
 
-        var dataArray = [10,15,190,35,90];
-
-        var barWidth = 50;
-        var barSpacing = 10;
-
-        // Initial Spacing
-        var x = 0;
-        // Offset
-        var offset = 6;
-        // Draws the outlines
-       // ctx.fillStyle = "red";
-        
-
-    for (var i = 0; i < dataArray.length; i++)
-    {
-        // height of each bar
-        var height = dataArray[i];
+    var dataArray = [10, 15, 190, 35, 90];
+    var dataLabel = ['Str.Agree','Agree','Neutral','Disagree','Str.Disagree'];
+    /*
+    var dataArray = [
+    {label:'Strongly Agree', value: 10},
+    {label:'Agree', value: 10},
+    {label:'Neutral', value: 10},
+    {label:'Disagree', value: 10},
+    {label:'Strongly Disagree', value: 10}
+    ];
+    */
     
-        //var myColorOutline = ctx.fillStyle("red");
-        // Draws the bars
-        var myColorBar = ctx.createLinearGradient(0,0,0,255);
+    var barWidth = 50;
+    var barSpacing = 10;
+    var x = 0;
+    var offset = 6;
+    var curHeight = Math.max(...dataArray); // Find highest bar
 
-        myColorBar.addColorStop(0,"red");
-        myColorBar.addColorStop(0.5,"red");
-        myColorBar.addColorStop(1,"orange");
+    var myColorBar = ctx.createLinearGradient(0, 0, 0, 255);
+    myColorBar.addColorStop(0, "red");
+    myColorBar.addColorStop(0.5, "red");
+    myColorBar.addColorStop(1, "orange");
+    ctx.fillStyle = myColorBar;
+
+    // Draws the bars + Labels
+    for (var i = 0; i < dataArray.length; i++) {
+        var height = dataArray[i];
         ctx.fillStyle = myColorBar;
-        ctx.fillRect(canvas.width/5 +x, canvas.height - 50 - height - offset, barWidth, height);
-        
-        
+        ctx.fillRect(canvas.width / 5 + x, canvas.height - 50 - height - offset, barWidth, height);
 
-        // Seperates the bars
+        ctx.fillStyle = "black";
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(dataArray[i].toString(), canvas.width / 5 + x + barWidth / 2, canvas.height - 60 - height - offset, barWidth, height);
+        ctx.fillText(dataLabel[i], canvas.width / 5 + x + barWidth / 2, canvas.height - 40);
+
         x += barWidth + barSpacing;
     }
 
-    var curHeight = 0;
-    for (var i = 0; i < dataArray.length; i++)  // Find highest bar
-    {
-        if (curHeight < dataArray[i])
-        {
-            curHeight = dataArray[i];
-        }
-    }
     ctx.fillStyle = "red";
-    ctx.fillRect(0,canvas.height,100*dataArray.length,2);
-    ctx.fillRect(0,canvas.height,2,-curHeight);
+    ctx.fillRect(0, canvas.height, 100 * dataArray.length, 2);
+    ctx.fillRect(0, canvas.height, 2, -curHeight);
 
-
-    </script>
+</script>
 
 <script>
     // PIECHART SCRIPT---------------
@@ -303,6 +298,15 @@
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(slice.label, labelX, labelY);
+
+        // Percentage text
+        var percentage = (slice.value/total) * 100;
+        var percentageLabel = percentage.toFixed(1) + '%';
+        ctx.fillStyle = 'black';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(percentageLabel, labelX, labelY + 20);
 
         startAngle = endAngle;
     });
