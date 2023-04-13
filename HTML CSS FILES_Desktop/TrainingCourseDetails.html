@@ -295,15 +295,6 @@
 <script>
     // BARCHART SCRIPT-----------------
 
-    
-
-    /*
-    var myColorBar = ctx.createLinearGradient(0, 0, 0, 255);
-    myColorBar.addColorStop(0, "red");
-    myColorBar.addColorStop(0.5, "red");
-    myColorBar.addColorStop(1, "orange");
-    ctx.fillStyle = myColorBar;
-    */
     // Function to draw bars
     function drawBars() {
 
@@ -403,78 +394,6 @@
     drawPie();
 
 </script>
-
-<!--
-<script>
-    // PIECHART SCRIPT---------------
-
-    var canvas = document.getElementById('pieChart');
-    var ctx = canvas.getContext("2d");
-
-    //var dataArray = [5, 130, 10, 5, 75];
-
-    var dataArray = [
-    {label: 'Strongly Agree', value: 5, color: 'red'},
-    {label: 'Agree', value: 130, color: 'cyan'},
-    {label: 'Neutral', value: 25, color: 'yellow'},
-    {label: 'Disagree', value: 5, color: 'navy'},
-    {label: 'Strongly Disagree', value: 75, color: 'purple'}
-
-    ];
-/*
-    var data = [
-        { label: 'Strongly Agree', value: 25, color: 'red' },
-        { label: 'Agree', value: 15, color: 'cyan' },
-        { label: 'Neutral', value: 50, color: 'yellow' },
-        { label: 'Disagree', value: 25, color: 'navy' },
-        { label: 'Strongly Disagree', value: 25, color: 'purple' }
-
-    ];
-*/
-    var colorArray = ["red", "cyan", "yellow", "navy", "purple"]
-
-    var x = canvas.width / 2;
-    var y = canvas.height / 2;
-
-    var radius = 200;
-    var startAngle = 0;
-    var endAngle = Math.PI * 2;
-
-    // Math :I get sum
-    var total = 0;
-    for (var i = 0; i < dataArray.length; i++) {
-        total += dataArray.value[i];
-    }
-
-    // draw the piechart
-
-
-    for (var i = 0; i < dataArray.length; i++) {
-
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.arc(x, y, radius, startAngle, startAngle + (Math.PI * 2 * (dataArray.value[i] / total)), false);
-        ctx.closePath();
-
-        ctx.fillStyle = colorArray[i];
-        ctx.fill();
-
-        // Draw label
-        ctx.fillStyle = 'black';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        var labelX = x + (radius / 2) * Math.cos(startAngle + (Math.PI * (dataArray.value[i] / total)));
-        var labelY = y + (radius / 2) * Math.sin(startAngle + (Math.PI * (dataArray.value[i] / total)));
-        ctx.fillText(dataArray.label[i], labelX, labelY);
-
-        startAngle += Math.PI * 2 * (dataArray.value[i] / total);
-
-    }
-
-</script>
--->
-
 
 
 </html>

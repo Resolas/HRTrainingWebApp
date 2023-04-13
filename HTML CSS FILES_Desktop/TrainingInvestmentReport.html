@@ -72,7 +72,8 @@
     </div>
 
     <div>
-        <table>
+        <button onclick="loadReportSalaryData()">Load Data</button><br>
+        <table id="reportSalaryTable">
             <thead> <!--Overview Headers-->
                 <tr>
                     <th>Employee</th>
@@ -108,4 +109,61 @@
             </tbody>
         </table>
     </div>
+
+    
+
+</body>
+
+<script>
+    // Training Investment Report Section
+    function loadTrainingInvestmentData()
+    {
+
+        var getTable = document.getElementById('reportTrainingInvestment');
+
+        var row = getTable.insertRow();
+
+        var trainingProviderCell = row.insertCell(0);
+        var deliveryMethodCell = row.insertCell(1);
+        var courseFeesCell = row.insertCell(2);
+
+    }
+
+
+    // Employee Salary Section
+    function loadReportSalaryData() {
+    
+    var getTable = document.getElementById('reportSalaryTable');
+    
+    var row = getTable.insertRow();
+    
+    // DATA CELLS---------------
+    var employeeCell = row.insertCell(0);
+    var pointOnScaleCell = row.insertCell(1);
+    var fundingSourceCell = row.insertCell(2);
+    var annualSalaryCell = row.insertCell(3);
+    var weeklyHoursCell = row.insertCell(4);
+    var _ERPRSICell = row.insertCell(5);
+    var _ERPensionCell = row.insertCell(6);
+    var weeklyGrossCell = row.insertCell(7);
+    var weeklyTotalCell = row.insertCell(8);
+    var fullDayCell = row.insertCell(9);
+    var halfDayCell = row.insertCell(10);
+    var hourlyRateCell = row.insertCell(11);
+    // DATA CELLS---------------
+    
+    employeeCell.innerHTML = 'EMPLOYEE';
+    pointOnScaleCell.innerHTML = '8M';
+    fundingSourceCell.innerHTML = 'LAES';
+    
+    // ER PRSI + ER PENSION + WEEKLY GROSS
+
+    }
+    
+</script>
+
+    
+
+
+
 </html>
