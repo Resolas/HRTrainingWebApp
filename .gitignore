@@ -51,3 +51,4 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
+web.app/target/classes/META-INF/maven/com.hr/web.app/pom.properties

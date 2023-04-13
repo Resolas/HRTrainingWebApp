@@ -13,6 +13,19 @@ public class MvcConfig implements WebMvcConfigurer {
 	//Another view which is refernce for admin page("/admin")
 	//And a view which is a reference for the login page("/login")
 	
+	/* Code Templates USE THEM!!!
+	
+	Add this to the registry
+	
+	registry.addViewController("/mypage").setViewName("mypage");
+	
+	
+	HTML Button template Note: do not add .html to the href link
+	
+	<a class="button" href="mypage">mypage</a>
+	
+	*/
+	
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/home").setViewName("home");
 		registry.addViewController("/").setViewName("home");
@@ -21,6 +34,14 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/label").setViewName("employee");
 		
+		// User pages
+		registry.addViewController("/application").setViewName("application");
+		registry.addViewController("/evaluationpart1").setViewName("evaluationpart1");
+		registry.addViewController("/evaluationpart2").setViewName("evaluationpart2");
+		registry.addViewController("/pendingapplication").setViewName("pendingapplication");
+		
+		// Admin pages
+		registry.addViewController("/employeepersonaldetailspart1").setViewName("employeepersonaldetailspart1");
 		
 	}//end addViewControllers Method
 
