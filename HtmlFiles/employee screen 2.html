@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Screen</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.container {
+			margin: 20px;
+		}
+
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.button:hover {
+			background-color: #3e8e41;
+		}
+
+		h2 {
+			color: #333;
+			margin-top: 30px;
+		}
+
+		p {
+			color: #666;
+			line-height: 1.5;
+			margin-bottom: 30px;
+		}
+
+		.application, .evaluation, .pending {
+			display: none;
+		}
+
+		.application:target, .evaluation:target, .pending:target {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<h1>Employee Screen</h1>
+	</header>
+
+	<div class="container">
+		<a class="button" href="#application">Application</a>
+		<a class="button" href="#evaluation">Evaluation</a>
+		<a class="button" href="#pending">Pending Application</a>
+		<a class="button" href="#back">Back</a>
+
+		<div class="application" id="application">
+			<h2>Application</h2>
+			<p>This is the Application page.</p>
+		</div>
+
+		<div class="evaluation" id="evaluation">
+			<h2>Evaluation</h2>
+			<p>This is the Evaluation page.</p>
+		</div>
+
+		<div class="pending" id="pending">
+			<h2>Pending Application</h2>
+			<p>This is the Pending Application page.</p>
+		</div>
+
+		<div class="back" id="back">
+			<h2>Back</h2>
+			<p>This is the Back page.</p>
+		</div>
+	</div>
+</body>
+</html>
