@@ -1,25 +1,132 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html>
 <head>
+	<title>Pending Applications</title>
+	<style>
+		body {
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
 
-<title>Pending Application</title>
+		.container {
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin-top: 30px;
+			width: 100%;
+		}
+
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+		.tag {
+			display: inline-block;
+			padding: 5px 10px;
+			border-radius: 5px;
+			font-weight: bold;
+			font-size: 14px;
+			margin: 0 5px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.approve {
+			background-color: #4CAF50;
+		}
+
+		.deny {
+			background-color: #f44336;
+		}
+
+		.inprocess {
+			background-color: #FFA500;
+		}
+
+		.add-row-btn {
+			background-color: #2196F3;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.btn-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.back-btn {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
-.gdpr-disclaimer {
-  font-size: 0.8rem;
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 10px;
-  margin-top: 20px;
-  border-top: 1px solid #e0e0e0;
-}
-<form>
-<h1>Thank you for Applying for the Course</h1>
-<h2>Have a Great Day</h2> 
-</form>
-
-<footer class="gdpr-disclaimer">
-“I agree that where BJC contribution to course fees for any one training course exceeds €500 in any twelve month period, 50% of the cost will be repaid by me in the following circumstances. I will repay this money if I fail to complete the course, if I fail the exams or should I decide to leave the organisation within twelve months of having completed the course to take up another position. These arrangements may be altered at the discretion of Management”.
-</footer>
-</body>
+	
+	<div class="container">
+		<h1>Pending Applications</h1>
+		<div class="btn-container">
+			<a href="#" class="back-btn">Back</a>
+			<button class="add-row-btn">Add Row</button>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>Employee Name</th>
+					<th>Training Provider</th>
+					<th>Training Programme</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Cost</th>
+					<th>Duration</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>001</td>
+					<td>John Doe</td>
+					<td>ABC Training Center</td>
+					<td>Web Development</td>
+					<td>2023-05-01</td>
+					<td>2023-06-30</td>
+					<td>$1000</td>
+					<td>60 hours</td>
+					<td>
+						<span class="tag approve">Approve</span>
+						<span class="tag deny">Deny</span>
+						<span class="tag inprocess">In Process</span>
+					</td>
+				</tr>
+		
+		</body>
+		
+	<footer class="gdpr-disclaimer">
+“I agree that where BJC contribution to course fees for any one training course exceeds €500 in any twelve month period, 
+50% of the cost will be repaid by me in the following circumstances. I will repay this money if I fail to complete the course, 
+if I fail the exams or should I decide to leave the organisation within twelve months of having completed the course to take up 
+another position. These arrangements may be altered at the discretion of Management”.
+	</footer>
 </html>

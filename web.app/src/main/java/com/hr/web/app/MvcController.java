@@ -36,7 +36,6 @@ class AdminController {
     public String admin() {
         return "admin";
     }
-}
 
 @Controller
 class UserController {
@@ -63,8 +62,6 @@ class UserController {
 		
 	}
 	
-	
 }
-
-
+}
 
