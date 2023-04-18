@@ -64,11 +64,49 @@
 
 </style>
 <body>
+    <div><a href="HRAdminMenu.html">Back</a></button>       </div>
     <div>
         
 	<h1>Training Investment Report   <button style="text-align: right; margin-left: 50px;">
-        <a href="TrainingCourseDetails.html">Back</a></button>            
+             
          </h1>
+    </div>
+
+    <div>
+        <button onclick="loadTrainingInvestmentData()">Load Data</button><br>
+        <table id="reportTrainingInvestment">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Delivery Method</th>
+                    <th>Course Fees</th>
+                    <th>No. Employees Attended</th>
+                    <th>No. of Days</th>
+                    <th>No. of Hours</th>
+                    <th>Salary Costs</th>
+                    <th>Total Cost</th>
+                    <th>Cumulative Costs</th>
+                    
+                </tr>
+                
+            </thead>
+            <tbody>
+
+                <tr>
+
+
+                </tr>
+
+            </tbody>
+
+        </table>
+        
+    </div>
+
+    <div>
+
+        <h1>Employee Salary Report</h1>
+
     </div>
 
     <div>
@@ -81,8 +119,8 @@
                     <th>Funding Source</th>
                     <th>Annual Salary</th>
                     <th>Weekly Hours</th>
-                    <th>ER PRSI</th>
-                    <th>ER Pension</th>
+                    <!--<th>ER PRSI</th>-->
+                    <!--<th>ER Pension</th>-->
                     <th>Weekly Gross</th>
                     <th>Total Weekly</th>
                     <th>Full Day</th>
@@ -102,8 +140,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    
                 </tr>
                 
             </tbody>
@@ -133,8 +170,23 @@
         var totalCost = row.insertCell(7);
         var cumulativeCost = row.insertCell(8);
 
-    }
+        var newCuCost = function ()
+        {
 
+            for (var i = 0; i < 5; i++)
+        {
+
+
+
+
+        }
+
+        }
+
+        //salaryCost.innerHTML
+
+    }
+    // NOTE: ER PRSI , ER PENSION REMOVED
 
     // Employee Salary Section
     function loadReportSalaryData() {
@@ -149,13 +201,11 @@
     var fundingSourceCell = row.insertCell(2);
     var annualSalaryCell = row.insertCell(3);
     var weeklyHoursCell = row.insertCell(4);
-    var _ERPRSICell = row.insertCell(5);
-    var _ERPensionCell = row.insertCell(6);
-    var weeklyGrossCell = row.insertCell(7);
-    var weeklyTotalCell = row.insertCell(8);
-    var fullDayCell = row.insertCell(9);
-    var halfDayCell = row.insertCell(10);
-    var hourlyRateCell = row.insertCell(11);
+    var weeklyGrossCell = row.insertCell(5);
+    var weeklyTotalCell = row.insertCell(6);
+    var fullDayCell = row.insertCell(7);
+    var halfDayCell = row.insertCell(8);
+    var hourlyRateCell = row.insertCell(9);
     // DATA CELLS---------------
     
     employeeCell.innerHTML = 'EMPLOYEE';
