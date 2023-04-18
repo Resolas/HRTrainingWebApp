@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Personal Details P1</title>
+	<!--
+    <link href="PendingApplicationsStyleSheet.css" rel="stylesheet">
+    -->
+
+	<style>
+        body{
+            margin:0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+		table {
+			border-collapse: collapse;
+			margin-bottom: 20px;
+			width: 100%;
+			font-size: 16px;
+		}
+		
+		th, td {
+			padding: 10px 20px;
+			border: 1px solid #A4A3FF;
+			text-align: center;
+		}
+		
+		th {
+			background-color: #F2F2F2;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		p {
+			margin-top: 20px;
+			font-size: 18px;
+			line-height: 1.5;
+			text-align: justify;
+		}
+        div{
+            text-align: center;
+            min-width: 10%;
+            max-width: 50%;
+            border-radius: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
+            display: flexbox;
+        }
+	
+	</style>
+    
+</head>
+<body>
+	<h1>Employee Personal Details P1</h1>
+	
+    <div>
+        <table>
+            <thead> <!--Overview Headers-->
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee First Name</th>
+                    <th>Employee Last Name</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bill</td>
+                    <td>Cassidy</td>
+                    <td>Active</td>
+                   
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Tony</td>
+                     <td>O'Grady</td>
+                    <td>Inactive</td>
+
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Paul</td>
+                    <td>Moore</td>
+                    <td>Active</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+	
+<html>
+<head>
+	<title>Adjust Button Location</title>
+	<style>
+		#myButton {
+			position: relative;
+			top: 10px;
+			left: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<button id="myButton" onclick="addRow()">Add Row</button>
+	<script>
+		function addRow() {
+			// your function code here
+		}
+	</script>
+</body>
+</html>
+	
+	<script>
+		function addRow() {
+			// Get a reference to the table
+			var table = document.getElementsByTagName('table')[0];
+			
+			// Create a new row
+			var row = table.insertRow();
+			
+			// Add cells to the new row
+			var employeeIdCell = row.insertCell();
+			var employeeFirstNameCell = row.insertCell();
+			var employeeLastNameCell = row.insertCell();
+			var StatusCell = row.insertCell();
+			
+			// Add text to the new cells
+			courseNameCell.innerHTML = '2021';
+			trainingProviderCell.innerHTML = '$180,000';
+			trainingPerformanceCell.innerHTML = '$130,000';
+			costCell.innerHTML = '$50,000';
+            dayCell.innerHTML = '30d';
+            employeeCell.innerHTML = '9';
+            // Code to create a button in a script
+            var newButton = document.createElement('button');
+            newButton.innerHTML = 'View Course'
+            newButton.onclick = function()
+            {
+                // put whatever it needs to send the user to that course details
+                alert('Viewing Course :)');
+            };
+            buttonCell.appendChild(newButton);
+		}
+	</script>
+</body>
+</html>

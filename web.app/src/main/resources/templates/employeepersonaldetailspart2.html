@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Form</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+    form {
+      background-color: #e6f7ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #888888;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #4da6ff;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+      outline: none;
+      box-shadow: 0px 0px 5px #888888;
+    }
+    input[type="submit"], input[type="button"] {
+      background-color: #0099CC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover, input[type="button"]:hover {
+      background-color: #0077b3;
+    }
+    input[type="submit"]:focus, input[type="button"]:focus {
+      outline: none;
+    }
+    .back-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>Employee Personal Details</h1>
+    <label for="emp-id">Employee ID:</label>
+    <input type="text" id="emp-id" name="emp-id" autocomplete="off">
+​
+    <label for="emp-fname">Employee First Name:</label>
+    <input type="text" id="emp-fname" name="emp-fname" autocomplete="off">
+    
+        <label for="emp-lname">Employee Last Name:</label>
+    <input type="text" id="emp-lname" name="emp-lname" autocomplete="off">
+​
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" autocomplete="off">
+
+    <label for="emp-status">Employee Status:</label>
+    <input type="text" id="emp-status" name="emp-status" autocomplete="off">
+​
+    <label for="emp-pos">Employee Position:</label>
+    <input type="text" id="emp-pos" name="emp-pos" autocomplete="off">
+​
+    <label for="salary">Salary:</label>
+    <input type="text" id="salary" name="salary" autocomplete="off">
+​
+    <label for="funded-by">Funded By:</label>
+    <input type="text" id="funded-by" name="funded-by" autocomplete="off">
+​
+    <label for="emp-email">Employee Email:</label>
+    <input type="email" id="emp-email" name="emp-email" autocomplete="off">
+    
+<style>
+  label.radio {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  input[type="radio"] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+<label for="is-admin">Is Admin:</label>
+
+<label class="radio" for="is-admin-yes">
+  <input type="radio" id="is-admin-yes" name="is-admin" value="yes">
+  Yes
+</label>
+<label class="radio" for="is-admin-no">
+  <input type="radio" id="is-admin-no" name="is-admin" value="no">
+  No
+</label>
+
+
+​
+<div class="back-btn">
+  <input type="button" value="Back" onclick="goBack()">
+  <input type="button" value="Save" onclick="saveData()">
+</div> 
+​
+<script>
+  function goBack() {
+    window.location.href = "employeepersonaldetailspart1.html";
+  }
+  function saveData() {
+	    //  Code to save the data goes here
+	  }
+  </script>
+
+</style>
+  </style>
+    
+</script>
+
+<br><br><br><br><br><br>
+    <footer>
+      <p>&copy; Team LEET/1337 All Rights Reserved.</p>
+    </footer>
+  </form>
+</body>
+</html>

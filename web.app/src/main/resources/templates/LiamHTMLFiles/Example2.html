@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Employee Information Form</title>
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        color: #009688;
+        text-align: center;
+      }
+      form {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px #ccc;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+      }
+      input[type="text"], input[type="password"], input[type="email"], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #009688;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #00796b;
+      }
+      button {
+        background-color: #ff5722;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      button:hover {
+        background-color: #e64a19;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee Registration Form</h1>
+    <form>
+      <label for="employee-id">Employee ID:</label>
+      <input type="text" id="employee-id" name="employee-id" autocomplete="off" readonly>
+
+      <label for="first-name">Employee First Name:</label>
+      <input type="text" id="first-name" name="first-name">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+
+      <label for="last-name">Employee Last Name:</label>
+      <input type="text" id="last-name" name="last-name">
+
+      <label for="dob">Employee D.O.B:</label>
+      <input type="date" id="dob" name="dob">
+
+      <label for="status">Employee Status:</label>
+      <select id="status" name="status">
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="contractor">Contractor</option>
+      </select>
+
+      <label for="position">Employee Position:</label>
+      <input type="text" id="position" name="position">
+
+      <label for="salary">Salary:</label>
+      <input type="text" id="salary" name="salary">
+
+      <label for="funded-by">Funded By:</label>
+      <input type="text" id="funded-by" name="funded-by">
+
+      <label for="email">Employee Email:</label>
+      <input type"email" id="email" name="email">
+      
+        <label for="contact-number">Employee Contact Number:</label>
+  <input type="text" id="contact-number" name="contact-number">
+
+  <label for="medical-condition">Employee Medical Condition:</label>
+  <textarea id="medical-condition" name="medical-condition"></textarea>
+
+  <div style="text-align:center">
+    <button type="button" onclick="goBack()">Back</button>
+    <button type="button" onclick="editForm()">Edit</button>
+     <input type="submit" value="Save">
+  </div>
+</form>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+
+  function editForm() {
+    document.getElementById("employee-id").disabled = false;
+    document.getElementById("first-name").disabled = false;
+    document.getElementById("password").disabled = false;
+    document.getElementById("last-name").disabled = false;
+    document.getElementById("dob").disabled = false;
+    document.getElementById("status").disabled = false;
+    document.getElementById("position").disabled = false;
+    document.getElementById("salary").disabled = false;
+    document.getElementById("funded-by").disabled = false;
+    document.getElementById("email").disabled = false;
+    document.getElementById("contact-number").disabled = false;
+    document.getElementById("medical-condition").disabled = false;
+  }
+</script>
+      
