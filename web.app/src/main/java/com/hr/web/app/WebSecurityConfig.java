@@ -53,7 +53,7 @@ public class WebSecurityConfig {
 	}//End SecurityFilterChain Method
 	
 	
-	//Bean class for storing user details
+	//Bean class for storing user details using InMemoryManager
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
