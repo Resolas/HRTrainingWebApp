@@ -5,36 +5,126 @@
     <title>Canvas Example</title>
 </head>
 <body>
-    <h1>Canvas Example</h1>
-    <button id="button1">Update Canvas 1</button>
-    <canvas id="canvas1" width="200" height="200" style="border:1px solid black;"></canvas>
-    <br>
-    <button id="button2">Update Canvas 2</button>
-    <canvas id="canvas2" width="200" height="200" style="border:1px solid black;"></canvas>
-
-    <script>
-        // Get canvas elements and buttons
-        var canvas1 = document.getElementById("canvas1");
-        var ctx1 = canvas1.getContext("2d");
-        var button1 = document.getElementById("button1");
-        
-        var canvas2 = document.getElementById("canvas2");
-        var ctx2 = canvas2.getContext("2d");
-        var button2 = document.getElementById("button2");
-        
-        // Add click event listener to button1
-        button1.addEventListener("click", function() {
-            // Update canvas1
-            ctx1.fillStyle = "red";
-            ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
-        });
-        
-        // Add click event listener to button2
-        button2.addEventListener("click", function() {
-            // Update canvas2
-            ctx2.fillStyle = "blue";
-            ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
-        });
-    </script>
+    <table id="trainingInvestmentTable">
+        <thead>
+            <tr>
+                <th>Training Provider</th>
+                <th>Delivery Method</th>
+                <th>Course Fees</th>
+                <th>No. of Employees Attended</th>
+                <th>No. of Days</th>
+                <th>No. of Hours</th>
+                <th>Salary Cost</th>
+                <th>Total Cost</th>
+                <th>Cumulative Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ABC Training</td>
+                <td>Online</td>
+                <td>1000</td>
+                <td>10</td>
+                <td>5</td>
+                <td>25</td>
+                <td>2000</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>XYZ Training</td>
+                <td>In-person</td>
+                <td>1500</td>
+                <td>8</td>
+                <td>3</td>
+                <td>18</td>
+                <td>1600</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
+
+<script>
+
+function calculateTrainingInvestment() {
+    var table = document.getElementById("trainingInvestmentTable");
+    var rows = table.getElementsByTagName("tr");
+
+    var cumulativeCost = 0;
+    for (var i = 1; i < rows.length; i++) { // start at index 1 to skip header row
+        var row = rows[i];
+        var cells = row.getElementsByTagName("td");
+
+        var courseFees = parseFloat(cells[2].textContent);
+        var salaryCost = parseFloat(cells[6].textContent);
+
+        var totalCost = courseFees + salaryCost;
+        cells[7].textContent = totalCost.toFixed(2);
+
+        cumulativeCost += totalCost;
+        cells[8].textContent = cumulativeCost.toFixed(2);
+    }
+}
+
+calculateTrainingInvestment();
+
+</script>
+
 </html>

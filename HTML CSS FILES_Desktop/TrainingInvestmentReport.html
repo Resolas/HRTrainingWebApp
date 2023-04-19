@@ -74,6 +74,7 @@
 
     <div>
         <button onclick="loadTrainingInvestmentData()">Load Data</button><br>
+        <button onclick="updateTotalAndCumulative()">Update Total</button><br>
         <table id="reportTrainingInvestment">
             <thead>
                 <tr>
@@ -157,7 +158,6 @@
     {
 
         var getTable = document.getElementById('reportTrainingInvestment');
-
         var row = getTable.insertRow();
 
         var trainingProviderCell = row.insertCell(0);
@@ -170,23 +170,40 @@
         var totalCost = row.insertCell(7);
         var cumulativeCost = row.insertCell(8);
 
-        var newCuCost = function ()
+        courseFeesCell.innerHTML = '50';
+        salaryCost.innerHTML = '100';
+
+        // Adds the total upon adding a NEW row
+        /*
+        courseFeesCellF = parseFloat(row.cells[2].innerHTML);
+        salaryCostF = parseFloat(row.cells[6].innerHTML);
+        var newTotal = courseFeesCellF + salaryCostF;
+        totalCost.innerHTML = newTotal;
+        */
+    
+    }
+    
+    function updateTotalAndCumulative()
+    {
+        var getTable = document.getElementById('reportTrainingInvestment');
+        var rows;
+
+        for (var i = 1; i < getTable.rows.length; i++)
         {
+            var courseFeesCell = parseFloat(rows.cells[2].innerHTML);
+            var salaryCost = parseFloat(rows.cells[6].innerHTML);
 
-            for (var i = 0; i < 5; i++)
-        {
+            var newTotal = courseFeesCell + salaryCost;
+            var totalCost = newTotal;
 
-
-
+            getTable.rows.cells[7].innerHTML = totalCost.toFixed(2);
 
         }
 
-        }
-
-        //salaryCost.innerHTML
 
     }
-    // NOTE: ER PRSI , ER PENSION REMOVED
+
+    
 
     // Employee Salary Section
     function loadReportSalaryData() {
