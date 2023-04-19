@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MvcController {
 
-	
+
 	@GetMapping("/")
     public String root() {
         return "redirect:/login";
     }
-	
+
 }
 
 @Controller
@@ -44,26 +44,26 @@ class UserController {
     public String user() {
         return "user";
     }
-	
-	// To connect new pages 
-	
+
+	// To connect new pages
+
 	@GetMapping("/evaluationpart1")
 	public String evaluationpart1()
 	{
-		
+
 		return "evaluationpart1";
-		
+
 	}
-	
+
 	@GetMapping("/evaluationpart2")
 	public String evaluationpart2()
 	{
-		
+
 		return "evaluationpart2";
-		
+
 	}
-	
-	
+
+
 }
 
 
