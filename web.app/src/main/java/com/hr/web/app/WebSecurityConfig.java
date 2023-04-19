@@ -1,13 +1,12 @@
 package com.hr.web.app;
 
-import org.springframework.context.annotation.Bean;
-
+import org.springframework.context.annotation.Bean; 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -17,9 +16,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-	
+
 	//Bean class to authorize HTTP requests and set roles of users
-	//Class also authenticates users and shows login and logout form  
+	//Class also authenticates users and shows login and logout form
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 		http.authorizeHttpRequests((requests) -> requests
@@ -48,12 +47,13 @@ public class WebSecurityConfig {
 					.and()
 			)
 			.logout((logout) -> logout.permitAll());
-		return http.build();		
-					
+		return http.build();
+
 	}//End SecurityFilterChain Method
-	
-	
-	//Bean class for storing user details using InMemoryManager
+
+
+
+	//Bean class for storing user details
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -67,7 +67,7 @@ public class WebSecurityConfig {
         	.build();
         return new InMemoryUserDetailsManager(user, admin);
     }
-	
-	
+
+
 
 }
