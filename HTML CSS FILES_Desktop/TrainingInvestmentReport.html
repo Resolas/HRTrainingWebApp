@@ -186,12 +186,14 @@
     function updateTotalAndCumulative()
     {
         var getTable = document.getElementById('reportTrainingInvestment');
-        var rows;
+        var row = getTable.getElementsByTagName("tr");;
+
+        var cumulativeCost = 0;
 
         for (var i = 1; i < getTable.rows.length; i++)
         {
-            var courseFeesCell = parseFloat(rows.cells[2].innerHTML);
-            var salaryCost = parseFloat(rows.cells[6].innerHTML);
+            var courseFeesCell = parseFloat(row.cells[2].innerHTML);
+            var salaryCost = parseFloat(row.cells[6].innerHTML);
 
             var newTotal = courseFeesCell + salaryCost;
             var totalCost = newTotal;
