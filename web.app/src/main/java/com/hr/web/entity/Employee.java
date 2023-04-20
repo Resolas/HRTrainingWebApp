@@ -1,4 +1,4 @@
-package com.hr.web.app.entity;
+package com.hr.web.entity;
 
 import jakarta.persistence.*;
 
@@ -70,7 +70,7 @@ public class Employee {
 		this.lastName = lastName;
 		}
 	    
-		//Empty Constructor 
+		//Empty Constructor for hibernate
 		public Employee() {}
 		
 

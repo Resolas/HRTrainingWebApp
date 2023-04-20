@@ -1,4 +1,4 @@
-package com.hr.web.app.entity;
+package com.hr.web.entity;
 
 import jakarta.persistence.*;
 
@@ -65,7 +65,7 @@ public class Admin {
 		this.lastName = lastName;
 	}
 	
-	//Empty Constructor
+	//Empty Constructor for hibernate
 	public Admin() {}
 	
 	//Constructor used to create a new Employee with attributes id, email, firstname, lastname and password

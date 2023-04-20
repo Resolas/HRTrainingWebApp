@@ -1,9 +1,9 @@
 package com.hr.web.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository; 
 import org.springframework.stereotype.Repository;
 
-import com.hr.web.app.entity.Admin;
+import com.hr.web.entity.Admin;
 
 
 //UserRepository class used to manage the data access and persistence for user-related operations within
@@ -15,5 +15,8 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 	
 	//Method to find Admin by email address
 	 Admin findByEmail(String email);
+	 
+	 //method to find admin by their name in database
+	 Admin findByName(String name);
 
 }
