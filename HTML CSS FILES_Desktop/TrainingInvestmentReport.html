@@ -74,7 +74,7 @@
 
     <div>
         <button onclick="loadTrainingInvestmentData()">Load Data</button><br>
-        <button onclick="updateTotalAndCumulative()">Update Total</button><br>
+        <button onclick="callTID()">Update Total</button><br>
         <table id="reportTrainingInvestment">
             <thead>
                 <tr>
@@ -94,8 +94,26 @@
             <tbody>
 
                 <tr>
-
-
+                    <td>ABC Training</td>
+                    <td>Online</td>
+                    <td>1000</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>25</td>
+                    <td>2000</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ABC Training</td>
+                    <td>Online</td>
+                    <td>1000</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>25</td>
+                    <td>2000</td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
             </tbody>
@@ -153,7 +171,7 @@
 </body>
 
 <script>
-    // Training Investment Report Section
+    // Training Investment Report Section ------------------------
     function loadTrainingInvestmentData()
     {
 
@@ -186,29 +204,40 @@
     function updateTotalAndCumulative()
     {
         var getTable = document.getElementById('reportTrainingInvestment');
-        var row = getTable.getElementsByTagName("tr");;
+        var rows = getTable.getElementsByTagName("tr");
 
         var cumulativeCost = 0;
 
-        for (var i = 1; i < getTable.rows.length; i++)
+        for (var i = 1; i < rows.length; i++)
         {
-            var courseFeesCell = parseFloat(row.cells[2].innerHTML);
-            var salaryCost = parseFloat(row.cells[6].innerHTML);
+            var row = rows[i];
+            var cells = row.getElementsByTagName("td");
 
-            var newTotal = courseFeesCell + salaryCost;
-            var totalCost = newTotal;
+            var courseFeesCell = parseFloat(row.cells[2].textContent);
+            var salaryCost = parseFloat(row.cells[6].textContent);
 
-            getTable.rows.cells[7].innerHTML = totalCost.toFixed(2);
+            var totalCost = courseFeesCell + salaryCost;
+            cells[7].textContent = totalCost.toFixed(2);
+
+            cumulativeCost += totalCost;
+            cells[8].textContent = cumulativeCost.toFixed(2);
 
         }
 
 
     }
-
     
 
-    // Employee Salary Section
+    function callTID()
+    {
+        loadTrainingInvestmentData();
+        updateTotalAndCumulative();
+    }
+    
+
+    // Employee Salary Section ------------------------------
     function loadReportSalaryData() {
+        
     
     var getTable = document.getElementById('reportSalaryTable');
     
@@ -235,6 +264,15 @@
 
     }
     
+    function updateSalaryData()
+    {
+
+        
+
+    }
+
+
+
 </script>
 
     
