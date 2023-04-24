@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>title</title>
+    <title>Reports</title>
     <link rel="stylesheet" type="text/css" href="MainStyleSheet.css">
 </head>
 <style>
@@ -213,10 +213,10 @@
             var row = rows[i];
             var cells = row.getElementsByTagName("td");
 
-            var courseFeesCell = parseFloat(row.cells[2].textContent);
+            var courseFees = parseFloat(row.cells[2].textContent);
             var salaryCost = parseFloat(row.cells[6].textContent);
 
-            var totalCost = courseFeesCell + salaryCost;
+            var totalCost = courseFees + salaryCost;
             cells[7].textContent = totalCost.toFixed(2);
 
             cumulativeCost += totalCost;
@@ -270,10 +270,30 @@
         var getTable = document.getElementById("reportSalaryTable");
         var rows = table.getElementsByTagName("tr");
 
+        
+        // Calculate Salaries
         for (var i = 1; i < rows.length; i++)
         {
 
-        
+            var row = rows[i];
+            var cells = row.getElementsByTagName("td");
+
+            // Do math here
+
+            // Declaring variables
+            var annualSalary = parseFloat(row.cell[i].textContent);
+
+            var weeklyGross = parseFloat(row.cells[i].textContent);
+            var weeklyHours = parseFloat(row.cell[i].textContent);
+            var weeklyTotal = parseFloat(row.cells[i].textContent);
+
+            var fullDay = parseFloat(row.cell[i].textContent);
+            var halfDay = parseFloat(row.cell[i].textContent);
+            var hourlyRate = parseFloat(row.cell[i].textContent);
+
+            
+
+
 
         }
 
