@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hr.web.entity.Employee;
 import com.hr.web.entity.Role;
@@ -24,10 +25,18 @@ public class EmployeeDetailsServiceImpl implements UserDetailsService {
 	
 	
 	@Override
+	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
 		
-		Employee employee = employeeRepository.findByEmail(email)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found with: " + email));
+		Employee employee = employeeRepository.findByEmail(email);
+		if(employee != null) {
+			  return new org.springframework.security.core.userdetails.User(
+		                employee.getEmail(),
+		                employee.getPassword(),
+		                employee.getRole().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole())).collect(Collectors.toList())
+		            );
+		}//end if
+				//.orElseThrow(() -> new UsernameNotFoundException("User not found with: " + email));
 		
 		return new org.springframework.security.core.userdetails.User(employee.getEmail(), employee.getPassword(),
 				employee.isEnabled(), true, true, true, getAuthorities(employee.getRole()));

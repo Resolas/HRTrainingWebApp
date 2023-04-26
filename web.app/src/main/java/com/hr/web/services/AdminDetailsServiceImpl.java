@@ -29,8 +29,11 @@ public class AdminDetailsServiceImpl implements UserDetailsService{
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
-		Admin admin = adminRepository.findByEmail(email)
-				.orElseThrow(() -> new EmailNotFoundException("Admin not found with Email: " + email));
+		Admin admin = adminRepository.findByEmail(email);
+		if(admin != null) {
+			return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(), admin.getRole().stream().map(role -> new SimpleGrantedAuthority("Role_" + role.getRole())).collect(Collectors.toList()));
+		}//end if
+				//.orElseThrow(() -> new EmailNotFoundException("Admin not found with Email: " + email));
 		
 		return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(),
 				admin.isEnabled(), true, true, true, getAuthorities(admin.getRole()));
