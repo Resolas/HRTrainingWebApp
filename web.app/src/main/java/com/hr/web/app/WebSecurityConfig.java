@@ -1,6 +1,6 @@
 package com.hr.web.app;
 
-import org.springframework.context.annotation.Bean; 
+import org.springframework.context.annotation.Bean;  
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -52,6 +52,7 @@ public class WebSecurityConfig {
 	}//End SecurityFilterChain Method
 	
 	
+	
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -59,20 +60,20 @@ public class WebSecurityConfig {
 
 
 
-	//Bean class for storing user details
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails user = User.withUsername("user")
-            .password(encoder.encode("user"))
-            .roles("USER")
-            .build();
-        UserDetails admin = User.withUsername("admin")
-        	.password(encoder.encode("admin"))
-        	.roles("ADMIN")
-        	.build();
-        return new InMemoryUserDetailsManager(user, admin);
-    }
+//	//Bean class for storing user details
+//    @Bean
+//    public InMemoryUserDetailsManager userDetailsService() {
+//        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//        UserDetails user = User.withUsername("user")
+//            .password(encoder.encode("user"))
+//            .roles("USER")
+//            .build();
+//        UserDetails admin = User.withUsername("admin")
+//        	.password(encoder.encode("admin"))
+//        	.roles("ADMIN")
+//        	.build();
+//        return new InMemoryUserDetailsManager(user, admin);
+//    }
 
 
 
