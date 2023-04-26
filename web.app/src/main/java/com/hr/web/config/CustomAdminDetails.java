@@ -1,29 +1,30 @@
 package com.hr.web.config;
 
+import java.util.ArrayList; 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.util.Collection;
-import java.util.Set;
-import java.util.List;
 
-import com.hr.web.entity.Employee;
+import com.hr.web.entity.Admin;
 import com.hr.web.entity.Role;
-import java.util.ArrayList;
 
-public class CustomEmployeeDetails implements UserDetails {
+public class CustomAdminDetails implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
-	private Employee employee;
+	private Admin admin;
 	
-	public CustomEmployeeDetails(Employee employee) {
-		this.employee = employee;
+	public CustomAdminDetails(Admin admin) {
+		this.admin = admin;	
 	}
-	
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities(){
-	    Set<Role> roles = employee.getRole();
+	    Set<Role> roles = admin.getRole();
 	    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 	    for (Role role : roles) {
 	        authorities.add(new SimpleGrantedAuthority(role.getRole()));
@@ -31,39 +32,40 @@ public class CustomEmployeeDetails implements UserDetails {
 	    return authorities;		
 	}//end Collection method
 	
-	@Override
-	public String getPassword() {
-		return employee.getPassword();
-	}//end getPassword method
-	
-	@Override
-	public String getUsername() {
-		return employee.getEmail();	
-	}//end getUsername method
-	
+    @Override
+    public String getPassword() {
+        return admin.getPassword();
+    }
+    
+    @Override
+    public String getUsername() {
+        return admin.getEmail();
+    }
+    
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-    
+
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-    
+
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-    
+
     @Override
     public boolean isEnabled() {
         return true;
     }
     
-    public Employee getEmployee() {
-    	return employee;
+    public Admin getAdmin() {
+    	return admin;
     }
-		
+	
+	
 
 }

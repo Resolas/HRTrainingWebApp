@@ -1,5 +1,8 @@
 package com.hr.web.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 
@@ -10,6 +13,12 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "role",
+				joinColumns = @JoinColumn(name = "admin_id"),
+				inverseJoinColumns = @JoinColumn(name = "role_name"))
+	private Set<Role> role = new HashSet<>();
 	
 	@Column(nullable = false, unique = true, length = 45)
     private String email;
@@ -24,6 +33,7 @@ public class Admin {
 	private String lastName;
 	
 	
+	
 	//Setter and Getters
 	public Long getId() {
 		return id;
@@ -32,6 +42,14 @@ public class Admin {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public Set<Role> getRole() {
+		return role;
+		}
+
+	public void setRole(Set<Role> role) {
+		this.role = role;
+		}
 	
 	public String getEmail() {
 		return email;
@@ -69,8 +87,9 @@ public class Admin {
 	public Admin() {}
 	
 	//Constructor used to create a new Employee with attributes id, email, firstname, lastname and password
-	public Admin(long id, String email, String password, String firstName, String lastName) {
+	public Admin(long id, Set role, String email, String password, String firstName, String lastName) {
 		this.id = id;
+		this.role = role;
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;

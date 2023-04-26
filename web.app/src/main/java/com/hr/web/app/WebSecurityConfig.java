@@ -1,12 +1,12 @@
 package com.hr.web.app;
 
-import org.springframework.context.annotation.Bean; 
+import org.springframework.context.annotation.Bean;  
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 //Class to configure Security for login
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class WebSecurityConfig{
 	
 	//Bean class to authorize HTTP requests and set roles of users
 	//Class also authenticates users and shows login and logout form
@@ -52,10 +52,10 @@ public class WebSecurityConfig {
 	}//End SecurityFilterChain Method
 	
 	
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }//end PasswordEncoder Method
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }//end PasswordEncoder Method
 
 
 
