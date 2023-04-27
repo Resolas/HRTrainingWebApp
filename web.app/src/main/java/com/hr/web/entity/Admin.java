@@ -1,6 +1,6 @@
 package com.hr.web.entity;
 
-import java.util.HashSet; 
+import java.util.HashSet;  
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -87,7 +87,7 @@ public class Admin {
 	public Admin() {}
 	
 	//Constructor used to create a new Employee with attributes id, email, firstname, lastname and password
-	public Admin(long id, Set role, String email, String password, String firstName, String lastName) {
+	public Admin(long id, Set<Role> role, String email, String password, String firstName, String lastName) {
 		this.id = id;
 		this.role = role;
 		this.email = email;

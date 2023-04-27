@@ -25,7 +25,7 @@ public class EmployeeDetailsServiceImpl implements UserDetailsService {
 	
 	
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
 		
 		Employee employee = employeeRepository.findByEmail(email);
@@ -39,7 +39,7 @@ public class EmployeeDetailsServiceImpl implements UserDetailsService {
 				//.orElseThrow(() -> new UsernameNotFoundException("User not found with: " + email));
 		
 		return new org.springframework.security.core.userdetails.User(employee.getEmail(), employee.getPassword(),
-				employee.isEnabled(), true, true, true, getAuthorities(employee.getRole()));
+				true, true, true, true, getAuthorities(employee.getRole()));
 	}
 	
 	   private Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
