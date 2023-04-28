@@ -40,7 +40,7 @@ public class WebSecurityConfig {
 				            response.sendRedirect("/admin");
 				        } else if (authentication.getAuthorities().stream()
 				                .anyMatch(a -> a.getAuthority().equals("ROLE_USER"))) {
-				            response.sendRedirect("/user");
+				            response.sendRedirect("/employeescreen");
 				        } else {
 				            throw new IllegalStateException();
 				        }

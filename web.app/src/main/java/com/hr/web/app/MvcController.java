@@ -36,12 +36,19 @@ class AdminController {
     public String admin() {
         return "admin";
     }
+	@GetMapping("/application")
+	public String application()
+	{
+		
+		return "application";
+		
+	}
 
 @Controller
 class UserController {
-	@GetMapping("/user")
-    public String user() {
-        return "user";
+	@GetMapping("/employeescreen")
+    public String employeescreen() {
+        return "employeescreen";
     }
 	
 	// To connect new pages 

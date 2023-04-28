@@ -82,15 +82,18 @@
 		}
 	</style>
 </head>
+
+
 <body>
 	
 	<div class="container">
 		<h1>Pending Applications</h1>
 		<div class="btn-container">
-			<a href="#" class="back-btn">Back</a>
-			<button class="add-row-btn">Add Row</button>
+			<a href="employeescreen" class="back-btn">Back</a>
+			<button class="add-row-btn" onclick ="addrow()">Add Row</button>
 		</div>
-		<table>
+		<table id="employeeid">
+	
 			<thead>
 				<tr>
 					<th>Employee ID</th>
@@ -120,8 +123,47 @@
 						<span class="tag inprocess">In Process</span>
 					</td>
 				</tr>
+				
+				
+	</div>
 		
-		</body>
+		
+		
+	</body>
+		<script>
+		
+		function addrow(){
+	
+		var getTable = document.getElementById('employeeid');
+		var rows = getTable.insertRow();
+		
+		var employeeIdCell = rows.insertCell(0);
+		var employeeNameCell = rows.insertCell(1);
+		var trainingProviderCell = rows.insertCell(2);
+		var trainingProgramCell = rows.insertCell(3);
+		var startDateCell = rows.insertCell(4);
+		var endDateCell = rows.insertCell(5);
+		var costCell = rows.insertCell(6);
+		var durationCell = rows.insertCell(7);
+
+		employeeIdCell.innerHTML = 'eployeeId';
+		employeeNameCell.innerHTML = 'employeeName';
+		trainingProviderCell.innerHTML = 'trainingProvider';
+		trainingProgramCell.innerHTML = 'trainingProgram';
+		startDateCell.innerHTML = 'startDate';
+		endDateCell.innerHTML = 'endDate';
+		costCell.innerHTML = 'cost';
+		durationCell.innerHTML = 'duration';
+	   
+
+
+		
+		
+		
+		}	
+	
+		
+		</script>
 		
 	<footer class="gdpr-disclaimer">
 “I agree that where BJC contribution to course fees for any one training course exceeds €500 in any twelve month period, 

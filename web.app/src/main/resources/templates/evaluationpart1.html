@@ -22,7 +22,8 @@
 		<input type="text" id="useful" name="useful">
 		<div class="button-container">
 			
-			<button class="button" type="submit" name="back">Back</button>
+
+			<a class="button" onclick="goBack()">Back</a>
 			<!-- <a class="button" href="evaluationpart2.html" name="next">Next</button> -->
 			
 			<a class="button" href="evaluationpart2">Next</a>
@@ -30,6 +31,18 @@
 		</form>
 	
 </body>
+
+<script>
+    // BACK BUTTON
+    
+    function goBack()
+    {
+    	window.history.back();
+    	
+    }
+    
+    </script>
+
 	<style>
 		body {
 			margin: 0;
@@ -104,15 +117,20 @@
 		.button:active {
 			background-color: #005cbf;
 		}
+		
+		
 	 
 	 </style>
-	
-    </head>
-    
-    <footer class="gdpr-disclaimer">
+	 <footer class="gdpr-disclaimer">
     “Ballymun Job Centre is committed to protecting the personal data of all our employees.
      All personal information recorded and stored in the BJC Staff Training Database, will 
      be held in accordance with General Data Protection Regulations (GDPR) and Data Protection Legislation”.
      </footer>
+    </head>
+    
+    
+    
+   
     
 </html>
+

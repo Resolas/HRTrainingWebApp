@@ -29,7 +29,7 @@ public class MvcConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/home").setViewName("home");
 		registry.addViewController("/").setViewName("home");
-		registry.addViewController("/user").setViewName("user");
+		//registry.addViewController("/user").setViewName("user");
 		registry.addViewController("/admin").setViewName("admin");
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/label").setViewName("employee");
@@ -39,15 +39,21 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/evaluationpart1").setViewName("evaluationpart1");
 		registry.addViewController("/evaluationpart2").setViewName("evaluationpart2");
 		registry.addViewController("/pendingapplication").setViewName("pendingapplication");
+		registry.addViewController("/employeescreen").setViewName("employeescreen");
+		registry.addViewController("/applicationsubmitted").setViewName("applicationsubmitted");
 		
 
 		// Admin pages
 		registry.addViewController("/employeepersonaldetailspart1").setViewName("employeepersonaldetailspart1");
 		registry.addViewController("/employeepersonaldetailspart2").setViewName("employeepersonaldetailspart2");
-		registry.addViewController("/evaluationpart1").setViewName("/evaluationpart1");
-		registry.addViewController("/evaluationpart2").setViewName("/evaluationpart2");
-		registry.addViewController("/admin registration").setViewName("admin registration");
+		registry.addViewController("/programregistration").setViewName("programregistration");
+
+		registry.addViewController("/evaluationpart1").setViewName("evaluationpart1");
+		registry.addViewController("/evaluationpart2").setViewName("evaluationpart2");
+		//registry.addViewController("/application").setViewName("application");
 		registry.addViewController("/employeeregistration").setViewName("employeeregistration");
+		registry.addViewController("/trainingcourseoverview").setViewName("trainingcourseoverview");
+		registry.addViewController("/trainingcoursedetails").setViewName("trainingcoursedetails");
 	}//end addViewControllers Method
 
 }

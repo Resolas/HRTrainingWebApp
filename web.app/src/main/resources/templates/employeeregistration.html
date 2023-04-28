@@ -1,134 +1,141 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head><head>
-...
-<style type="text/css">
+<html>
+<head>
+  <title>Employee Form</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+    form {
+      background-color: #e6f7ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #888888;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #4da6ff;
+    }
     label {
-        display: inline-block;
-        width: 90px;
-        margin: 1px;
-        text-align: left;
-        color: black;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
     }
-    input[type=text], input[type=password], select {
-        width: 200px;  
+    input[type="text"], input[type="password"], input[type="email"] {
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
     }
-    input[type=radio] {
-        display: inline-block;
-        margin-left: 05px;
-        
-       }
-    input[type=checkbox] {
-        display: inline-block;
-        margin-right: 190px;
-        width: 50px; 
-    }  
-     
-    button {
-        padding: 5px;
-        margin: 10px;
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+      outline: none;
+      box-shadow: 0px 0px 5px #888888;
+    }
+    input[type="submit"], input[type="button"] {
+      background-color: #0099CC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover, input[type="button"]:hover {
+      background-color: #0077b3;
+    }
+    input[type="submit"]:focus, input[type="button"]:focus {
+      outline: none;
     }
     
-</style>
-</head></head>
-<head>
-	<title>Employee Registration</title>
-	<style>
-		body {
-			background-color:#E6B0AA
-			; /* set background color to red */  /*AEB6BF*/
-		}
-	</style>
-</head>
-<head>
-	<title>Employee Registration Form</title>
-</head>
-	<style>
-		body {
-			background-image: url('bmjc.png');
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: center;
-		}
-	</style>
-	<h1 style="text-decoration: underline;color: Blue;">EMPLOYEE REGISTRATION</h1>
+    .back-button {
+  background-color: #0099CC;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-	<form action="#" method="post">
-	
-	
+.back-button:hover {
+  background-color: #0077b3;
+}
+
+.back-button:focus {
+  outline: none;
+}
+    
+
+  </style>
+</head>
+<body>
+  <form>
+    <h1>Employee Registration</h1>
 		<label for="id">ID:</label>
-		<input type="text" id="id" name="id"placeholder="Identifcation Number"required><br><br>
+		<input type="text" id="id" name="id"placeholder="Identifcation Number"required>
 		
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"placeholder="password"><br><br>
+		<input type="password" id="password" name="password"placeholder="password">
 ​
 		<label for="first-name">First Name:</label>
-		<input type="text" id="first-name" name="first-name" placeholder="first name"><br><br>
+		<input type="text" id="first-name" name="first-name" placeholder="first name">
 		
 		<label for="last-name">Last Name:</label>
-		<input type="text" id="last-name" name="last-name"placeholder="last name"><br><br>
-		
-	 <div>Gender</div>
-		  <label>
-		  <input type="radio" name="gender" value="male">
-		  Male
-		</label>
-		
-		<label>
-		  <input type="radio" name="gender" value="female">
-		  Female
-		</label><br><br>
-		
+		<input type="text" id="last-name" name="last-name"placeholder="last name">
 
-		<label for="dob">D.O.B:</label>
-		<input type="date" min="1920-01-01" max="2005-12-31"><br><br>
-		
-	    <label for="email">E-Mail:</label>
- 	    <input type=text id="email" name="email "placeholder="enter email" /><br><br>
- 	    
- 		 
- 	     <label for="contact-number">Contact No.:</label>
- 		 <input type="number" id="contact-number" name="contact-number"placeholder="enter number" /><br><br>
-​
 		<label for="start-date">Start Date:</label>
-		<input type="date"     id="start-date" name="start-date"><br>
+		<input type="date"     id="start-date" name="start-date">
 ​
 		<label for="end-date">End Date:</label>
 		<input type="date" id="end-date" name="end-date" ><br><br>
-		
-		
-		<label for="job-title">Job Title:</label>
-		<input type="text" id="job-title" name="job-title"placeholder="job title"><br><br>
 		
 		<label for="status">Status:</label>
 		<select id="status" name="Status"><br><br>
 		<option value="Active">Active</option>
 		<option value="Inactive">Inactive</option>
 		</select><br><br>
+	
+	<label for="job-title">Job Title:</label>
+	<input type="text" id="job-title" name="job-title"placeholder="job title"><br>
 		
-		
-		
-		
-  <label for="position">Position:</label>
-  <select id="position" name="position"><br><br>
-    <option value="manager">Manager</option>
-    <option value="supervisor">Supervisor</option>
-    <option value="staff">Staff</option>
-  </select><br><br>
-​
+  <label for="fundedby">Funded By:</label>
+  <input type="text" id="Funded By" name="Funded By" placeholder="Enter Text"><br>
+  
   <label for="number-input">Salary:</label>
   <input type="number" id="number-input" name="number-input"placeholder="€" /><br><br>
-​
-  <label for="fundedby">Funded By:</label>
-  <input type="text" id="Funded By" name="Funded By" placeholder="Enter Text"><br><br>
   
-  <div>
-  <label for="file">Insert File</label>
-  <input id="file" type="file" name="file">
+  <label for="email">E-Mail:</label>
+  <input type=text id="email" name="email "placeholder="enter email" /><br>
   
-  </div><br><br>
-  
-  
+  <style>
+  label.radio {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  input[type="radio"] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+<label for="is-admin">Is Admin:</label>
+
+<label class="radio" for="is-admin-yes">
+  <input type="radio" id="is-admin-yes" name="is-admin" value="yes">
+  Yes
+</label>
+<label class="radio" for="is-admin-no">
+  <input type="radio" id="is-admin-no" name="is-admin" value="no">
+  No
+</label>
+
+</div><br><br>
+   
 <button class="back-button" onclick="goBack()">Back</button>
 
 <script>
@@ -159,4 +166,3 @@ function goBack() {
     <footer>
       <p>&copy; Team LEET/1337 All Rights Reserved.</p>
     </footer>
-  
