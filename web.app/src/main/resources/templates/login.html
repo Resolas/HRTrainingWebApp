@@ -64,14 +64,14 @@ input {
     <div class="login-container">
     <h1>Login</h1><br>
 <div class="mybutton" th:if="${param.error}">
-            Invalid username and password.
+            Invalid email and password.
         </div><br>
         <div class="mybutton" th:if="${param.logout}">
             You have been logged out.
         </div><br>
         
         <form th:action="@{/login}" method="post">
-            <div><label> Username: <input type="text" name="username"/></label></div>
+            <div><label> Email: <input type="text" name="username"/></label></div>
             <div><label> Password: <input type="password" name="password"/></label></div>
             <div ><input class="mybutton" type="submit" value="Sign In"/></div>
         </form>
