@@ -42,4 +42,9 @@ public class Role {
         this.employees = users;
     }
 
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
