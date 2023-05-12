@@ -1,13 +1,14 @@
 package com.hr.web.services;
 
-import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 //import java.util.Optional;
@@ -19,19 +20,25 @@ import com.hr.web.entity.Role;
 import com.hr.web.repository.AdminRepository;
 
 @Service
+@Primary
 public class AdminDetailsServiceImpl implements UserDetailsService{
 
 	
-	@Autowired
+	//@Autowired
 	private AdminRepository adminRepository;
 	
+	private Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRole()))
+                .collect(Collectors.toList());
+    }
 	
 	@Override
-	@Transactional(readOnly = true)
+	//@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
 		Admin admin = adminRepository.findByEmail(email);
 		if(admin == null) {
-			throw new UsernameNotFoundException("Email Not Found");
+			throw new UsernameNotFoundException("Admin not found with email: " + email);
 //			return new org.springframework.security.core.userdetails.User(
 //					admin.getEmail(),
 //					admin.getPassword(),
@@ -44,10 +51,6 @@ public class AdminDetailsServiceImpl implements UserDetailsService{
 				true, true, true, true, getAuthorities(admin.getRole()));
 	}//end loadUserByUsername method
 	
-	private Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE" + role.getRole()))
-                .collect(Collectors.toList());
-    }
+
 
 }

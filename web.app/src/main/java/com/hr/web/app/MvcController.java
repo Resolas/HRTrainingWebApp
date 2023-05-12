@@ -1,6 +1,6 @@
 package com.hr.web.app;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller; 
 import org.springframework.web.bind.annotation.GetMapping;
 
 // MvcController is what directs the user to the login upon entering webapp or localhost/8080
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
  */
-
 
 
 @Controller

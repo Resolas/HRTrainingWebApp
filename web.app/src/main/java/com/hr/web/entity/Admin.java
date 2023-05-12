@@ -1,10 +1,9 @@
 package com.hr.web.entity;
 
-import java.util.HashSet;  
+import java.util.HashSet;   
 import java.util.Set;
 
 import jakarta.persistence.*;
-
 
 @Entity
 @Table(name = "admin")
@@ -20,18 +19,17 @@ public class Admin {
 				inverseJoinColumns = @JoinColumn(name = "role_name"))
 	private Set<Role> role = new HashSet<>();
 	
-	@Column(nullable = false, unique = true, length = 45)
+	@Column(nullable = false, unique = true, length = 64)
     private String email;
+	
+	@Column(name = "first name", nullable = false, length = 64)
+    private String firstName;
+	
+	@Column(name = "last name", nullable = false, length = 64)
+	private String lastName;
 	
 	@Column(nullable = false, length = 64)
     private String password;
-	
-	@Column(name = "first name", nullable = false, length = 20)
-    private String firstName;
-	
-	@Column(name = "last name", nullable = false, length = 20)
-	private String lastName;
-	
 	
 	
 	//Setter and Getters
@@ -59,13 +57,6 @@ public class Admin {
 		this.email = email;
 	}
 	
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
 	public String getFirstName() {
 		return firstName;
@@ -83,6 +74,14 @@ public class Admin {
 		this.lastName = lastName;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	//Empty Constructor for hibernate
 	public Admin() {}
 	
@@ -94,6 +93,6 @@ public class Admin {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-}
+}//end constructor
 
 }

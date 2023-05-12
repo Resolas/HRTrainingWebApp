@@ -1,5 +1,5 @@
 package com.hr.web.entity;
-import java.util.HashSet;  
+import java.util.HashSet;   
 import java.util.Set;
 import jakarta.persistence.*;
 

@@ -1,18 +1,23 @@
 package com.hr.web.app;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.context.annotation.Bean;   
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.User; 
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+//import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
 //Class to configure Security for login
 @Configuration
@@ -20,9 +25,22 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig{
 	
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserDetailsService adminDetailsService;
 	
+	@Autowired
+	private UserDetailsService employeeDetailsService;
+	
+	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	   @Autowired
+	    public WebSecurityConfig(UserDetailsService adminDetailsService,
+	                             UserDetailsService employeeDetailsService,
+	                             PasswordEncoder passwordEncoder) {
+	        this.adminDetailsService = adminDetailsService;
+	        this.employeeDetailsService = employeeDetailsService;
+	        this.passwordEncoder = passwordEncoder;
+	    }
 	
 	//Bean class to authorize HTTP requests and set roles of users
 	//Class also authenticates users and shows login and logout form
@@ -53,34 +71,53 @@ public class WebSecurityConfig{
 				    })
 					.and()
 			)
-			.logout((logout) -> logout.permitAll());
+			.logout((logout) -> logout.permitAll())
+			.userDetailsService(adminDetailsService)
+			.userDetailsService(employeeDetailsService);
 		return http.build();
-
 	}//End SecurityFilterChain Method
 	
+	  @Bean
+	    public AuthenticationManager authenticationManager() {
+	        // Create and configure the authentication providers for your project
+	        AuthenticationProvider adminAuthenticationProvider = adminAuthenticationProvider();
+	        AuthenticationProvider employeeAuthenticationProvider = employeeAuthenticationProvider();
+
+	        // Use ProviderManager as the implementation of AuthenticationManager
+	        ProviderManager authenticationManager = new ProviderManager(Arrays.asList(
+	                adminAuthenticationProvider,
+	                employeeAuthenticationProvider
+	        ));
+
+	        return authenticationManager;
+	    }//end AuthenticationManager
+	  
+	    @Bean
+	    public AuthenticationProvider adminAuthenticationProvider() {
+	        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+	        authenticationProvider.setUserDetailsService(adminDetailsService);
+	        authenticationProvider.setPasswordEncoder(passwordEncoder);
+
+	        // Additional configuration for admin authentication provider, if needed
+
+	        return authenticationProvider;
+	    }//end adminAuthenticationProvider
+	    
+	    @Bean
+	    public AuthenticationProvider employeeAuthenticationProvider() {
+	        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+	        authenticationProvider.setUserDetailsService(employeeDetailsService);
+	        authenticationProvider.setPasswordEncoder(passwordEncoder);
+
+	        // Additional configuration for employee authentication provider, if needed
+
+	        return authenticationProvider;
+	    }
 	
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }//end PasswordEncoder Method
-
-
-
-	//Bean class for storing user details
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails user = User.withUsername("user")
-            .password(encoder.encode("user"))
-            .roles("USER")
-            .build();
-        UserDetails admin = User.withUsername("admin")
-        	.password(encoder.encode("admin"))
-        	.roles("ADMIN")
-        	.build();
-        return new InMemoryUserDetailsManager(user, admin);
-    }
-
-
+	
+//	    @Bean
+//	    public PasswordEncoder passwordEncoder() {
+//	        return new BCryptPasswordEncoder();
+//	    }//end PasswordEncoder Method
 
 }

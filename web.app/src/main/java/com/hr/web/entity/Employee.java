@@ -22,19 +22,31 @@ public class Employee {
 				joinColumns = @JoinColumn(name = "employee_id"),
 				inverseJoinColumns = @JoinColumn(name = "role_name"))
 	private Set<Role> role = new HashSet<>();
+	
+	@Column(name = "first_name", nullable = false, length = 64)
+	private String firstName;
+
+	@Column(name = "last_name", nullable = false, length = 64)
+	private String lastName;
 
 	//@Column Annotation is used to specify a mapped column for a persistent property or field
-	@Column(nullable = false, unique = true, length = 45)
+	@Column(nullable = false, unique = true, length = 64)
 	private String email;
 	
 	@Column(nullable = false, length = 64)
 	private String password;
-
-	@Column(name = "first_name", nullable = false, length = 20)
-	private String firstName;
-
-	@Column(name = "last_name", nullable = false, length = 20)
-	private String lastName;
+	
+	@Column(nullable = false, length = 64)
+	private String status;
+	
+	@Column(nullable = false, length = 64)
+	private String position;
+	
+	@Column(nullable = false, length = 64)
+	private String fundedBy;
+	
+	@Column(nullable = false, length = 64)
+	private float annualSalary;
 	
 
 	//Setters and getters, used to access the data from the fields or properties
@@ -53,6 +65,22 @@ public class Employee {
 	public void setRole(Set<Role> role) {
 		this.role = role;
 		}
+	
+	public String getFirstName() {
+		return firstName;
+		}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		}
+
+	public String getLastName() {
+		return lastName;
+		}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+		}
 
 	public String getEmail() {
 		return email;
@@ -69,21 +97,37 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 		}
-
-	public String getFirstName() {
-		return firstName;
+	
+	public String getStatus() {
+		return status;
 		}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setStatus(String status) {
+		this.status = status;
+		}
+	
+	public String getPosition() {
+		return position;
 		}
 
-	public String getLastName() {
-		return lastName;
+	public void setPosition(String position) {
+		this.position = position;
+		}
+	
+	public String getFundedBy() {
+		return fundedBy;
 		}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFundedBy(String fundedBy) {
+		this.fundedBy = fundedBy;
+		}
+	
+	public float getAnnualSalary() {
+		return annualSalary;
+		}
+
+	public void setAnnualSalary(float annualSalary) {
+		this.annualSalary = annualSalary;
 		}
 	    
 		//Empty Constructor for hibernate
@@ -91,13 +135,17 @@ public class Employee {
 		
 
 		//Constructor used to create a new Employee with attributes id, email, firstname, lastname and password
-		public Employee(long id, Set role, String email, String password, String firstName, String lastName) {
+		public Employee(long id, Set<Role> role, String firstName, String lastName, String email, String password, String status, String position, String fundedBy, float annualSalary) {
 			this.id = id;
 			this.role = role;
-			this.email = email;
-			this.password = password;
 			this.firstName = firstName;
 			this.lastName = lastName;
+			this.email = email;
+			this.password = password;
+			this.status = status;
+			this.position = position;
+			this.fundedBy = fundedBy;
+			this.annualSalary = annualSalary;
 	}
 
 
